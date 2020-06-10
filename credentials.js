@@ -1,4 +1,4 @@
-exports.myCredentials = function () {
+exports.getCredentials = function () {
   //place credentials here
   let user = {
     username: "USERNAME",
