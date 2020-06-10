@@ -23,6 +23,7 @@ client.connect(err => {
 */
 
 const uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@cluster0-i3nnd.gcp.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
 // Use connect method to connect to the Server
 MongoClient.connect(uri, function(err, client) {
   assert.equal(null, err);
