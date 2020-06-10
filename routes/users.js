@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
   var db = req.db;
   var collection = db.get('test_collection');
   collection.find({},{},function(e,docs){
+      console.log(docs);
       res.render('users/index', {
           title:title,
           users:docs
