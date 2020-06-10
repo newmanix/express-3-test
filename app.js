@@ -6,12 +6,33 @@ var logger = require('morgan');
 
 let credentials = require('./credentials');//store mongodb credentials in separate, non-tracked file
 var db_admin = credentials.getCredentials();
-console.log(db_admin);
+//console.log(db_admin);
+
+
+var MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@cluster0-i3nnd.gcp.mongodb.net/test?retryWrites=true&w=majority";
+// Connect to the db
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  //var query = { address: "Park Lane 38" };
+  var query = { address: "Park Lane 38" };
+  dbo.collection("test_collection").find(query).toArray(function(err, result) {
+    if (err) throw err;
+    console.log(result);
+    db.close();
+  });
+});
+
+
+
+
+/*
 
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
-/*
+
 const uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@cluster0-i3nnd.gcp.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
@@ -20,7 +41,7 @@ client.connect(err => {
   //console.log(collection);
   client.close();
 });
-*/
+
 
 const uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@cluster0-i3nnd.gcp.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true });
@@ -42,7 +63,7 @@ function errorFunc(error) {
    console.log(error);
 }
 
-
+*/
 
 
 var indexRouter = require('./routes/index');
