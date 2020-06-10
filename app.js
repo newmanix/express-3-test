@@ -9,14 +9,39 @@ var db_admin = credentials.getCredentials();
 console.log(db_admin);
 
 const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+
+/*
 const uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@cluster0-i3nnd.gcp.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
   const collection = client.db("test_db").collection("test_collection");
   // perform actions on the collection object
-  console.log(collection);
+  //console.log(collection);
   client.close();
 });
+*/
+
+const uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@cluster0-i3nnd.gcp.mongodb.net/test?retryWrites=true&w=majority";
+// Use connect method to connect to the Server
+MongoClient.connect(uri, function(err, client) {
+  assert.equal(null, err);
+  client.close();
+});
+
+const db = client.db("test_db");
+var cursor = db.collection('new_collection').find({});
+cursor.forEach(iterateFunc, errorFunc);
+
+function iterateFunc(doc) {
+   console.log(JSON.stringify(doc, null, 4));
+}
+
+function errorFunc(error) {
+   console.log(error);
+}
+
+
 
 
 var indexRouter = require('./routes/index');
