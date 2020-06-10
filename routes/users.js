@@ -1,15 +1,23 @@
 var express = require('express');
 var router = express.Router();
-var data = require('../data/test.json');
+//var data = require('../data/test.json');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  //res.send('respond with a resource');
   var title = "Our Users Page";
+  var db = req.db;
+  var collection = db.get('test_collection');
+  collection.find({},{},function(e,docs){
+      res.render('users/index', {
+          title:title,
+          users:docs
+      });
+  });
+  /*
   res.render('users/index',{
     title:title,
     users:data
   });
+  */
 });
 
-module.exports = router;
