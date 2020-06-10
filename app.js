@@ -14,9 +14,9 @@ var uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@clu
 // Connect to the db
 MongoClient.connect(uri, function(err, db) {
   if (err) throw err;
-  var dbo = db.db("mydb");
+  var dbo = db.db("test_db");
   //var query = { address: "Park Lane 38" };
-  var query = { address: "Park Lane 38" };
+  var query = {};
   dbo.collection("test_collection").find(query).toArray(function(err, result) {
     if (err) throw err;
     console.log(result);
