@@ -1,8 +1,8 @@
 exports.getCredentials = function () {
   //place credentials here
   let user = {
-    username: "USERNAME",
-    password: "PASSWORD"
+    username: "test_admin",
+    password: "vfr4esz"
   };
   return user;
 };
