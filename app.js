@@ -4,12 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var credentials = require('./credentials');//store mongodb credentials in separate, non-tracked file
-
-console.log(credentials);
+let credentials = require('./credentials');//store mongodb credentials in separate, non-tracked file
+var db_admin = credentials.getCredentials();
+console.log(db_admin);
 
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://" + credentials.username + ":" + credentials.password + "@cluster0-i3nnd.gcp.mongodb.net/test?retryWrites=true&w=majority";
+const uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@cluster0-i3nnd.gcp.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
   const collection = client.db("test_db").collection("test_collection");
