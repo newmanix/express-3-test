@@ -4,6 +4,17 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://test_admin:vfr4esz@cluster0-i3nnd.gcp.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test_db").collection("test_collection");
+  // perform actions on the collection object
+  console.log(collection);
+  client.close();
+});
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
