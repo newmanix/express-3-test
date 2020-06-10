@@ -10,9 +10,9 @@ var db_admin = credentials.getCredentials();
 
 
 var MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@cluster0-i3nnd.gcp.mongodb.net/test?retryWrites=true&w=majority";
+var uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@cluster0-i3nnd.gcp.mongodb.net/test?retryWrites=true&w=majority";
 // Connect to the db
-MongoClient.connect(url, function(err, db) {
+MongoClient.connect(uri, function(err, db) {
   if (err) throw err;
   var dbo = db.db("mydb");
   //var query = { address: "Park Lane 38" };
