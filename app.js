@@ -14,8 +14,11 @@ var uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@clu
 var db = monk(uri);
 
 db.then(() => {
-  console.log('Connected correctly to server')
+  console.log('Connected correctly to server');
 })
+
+const collection = db.get('test_collection');
+ console.log(collection);
 
 //console.log(db);
 
