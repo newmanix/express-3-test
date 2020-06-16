@@ -20,7 +20,7 @@ db.then(() => {
 const collection = db.get('test_collection');
  //console.log(collection);
 var data = collection.find({});
-data.on('success' =>(docs){
+data.on('success',function(docs){
           console.log(docs);
         });
 
