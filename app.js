@@ -13,6 +13,9 @@ var uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@clu
 // Connect to the db
 var db = monk(uri);
 
+console.log(db);
+
+
 /*
 var MongoClient = require('mongodb').MongoClient;
 var uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@cluster0-i3nnd.gcp.mongodb.net/test?retryWrites=true&w=majority";
