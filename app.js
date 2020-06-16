@@ -19,11 +19,22 @@ db.then(() => {
 
 const collection = db.get('test_collection');
  //console.log(collection);
+
+collection.find({}, function(err, docs){
+		if(err){
+      console.log(err);
+    }else{
+		  console.log(docs);
+    }
+	});
+
+
+/*
 var data = collection.find({});
 data.on('success',function(docs){
           console.log(docs);
         });
-
+*/
 
 //console.log(db);
 
