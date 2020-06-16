@@ -12,6 +12,21 @@ var monk = require('monk');
 var uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@cluster0-i3nnd.gcp.mongodb.net/test?retryWrites=true&w=majority";
 // Connect to the db
 var db = monk(uri);
+
+db.on("open",function() {
+  console.log(
+    db.driver._native.command(
+      { "listCollections": 1 },
+      function(err,result) {
+        console.log( result.cursor.firstBatch.map(function(el) {
+          return el.name;
+        }))
+    }
+  )
+);
+
+
+
 /*
 var MongoClient = require('mongodb').MongoClient;
 var uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@cluster0-i3nnd.gcp.mongodb.net/test?retryWrites=true&w=majority";
