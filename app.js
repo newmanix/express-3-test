@@ -19,7 +19,7 @@ db.then(() => {
 
 const collection = db.get('test_collection');
  //console.log(collection);
-console.log(collection.find({});
+console.log(collection.find({}));
 
 //console.log(db);
 
