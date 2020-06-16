@@ -53,6 +53,23 @@ app.use(function(req,res,next){
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+app.get('/dbs',function(req,res){
+  db.driver.admin.listDatabases(function(e,dbs){
+      res.json(dbs);
+  });
+});
+app.get('/collections',function(req,res){
+  db.driver.collectionNames(function(e,names){
+    res.json(names);
+  })
+});
+app.get('/collections/:name',function(req,res){
+  var collection = db.get(req.params.name);
+  collection.find({},{limit:20},function(e,docs){
+    res.json(docs);
+  })
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
