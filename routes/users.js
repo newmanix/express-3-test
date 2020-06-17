@@ -44,10 +44,15 @@ router.post('/insert', function(req, res) {
 
     var db = req.db;
     var collection = db.get('test_collection');
+  
+    /*
+    
+    did not work -
     collection.find({id:{gt:20}},{limit:1},function(e,docs){
       console.log(docs);
       res.send("check console");
   });
+  */
   
   /*
     var lastOne = collection.findOne({$query:{},$orderby:{id:-1}})
@@ -65,7 +70,7 @@ router.post('/insert', function(req, res) {
 
   });
   */
-  /*
+ 
     collection.insert({
         "first_name" : first_name,
         "last_name" : last_name,
@@ -78,8 +83,6 @@ router.post('/insert', function(req, res) {
             res.redirect("/");
         }
     });
-    
-    */
 
 });
 
