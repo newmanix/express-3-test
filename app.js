@@ -19,17 +19,19 @@ db.then(() => {
 
 const collection = db.get('new_collection');
 
+/*
 collection.insert([{a: 1}, {a: 2}, {a: 3}])
   .then((docs) => {
     // Inserted 3 documents into the document collection
 	console.log(docs);
   })
-
-/*
-
+  */
 
 
-const collection = db.get('xyz');
+
+
+
+const collection = db.get('new_collection');
  //console.log(collection);
 
 collection.find({}, function(err, docs){
@@ -40,7 +42,6 @@ collection.find({}, function(err, docs){
     }
 	});
 
-*/
 
 /*
 var data = collection.find({});
