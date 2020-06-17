@@ -17,7 +17,7 @@ db.then(() => {
   console.log('Connected correctly to server');
 })
 var dbo = db.db('test_db');
-const collection = dbo.get('test_collection');
+const collection = dbo.get('xyz');
  //console.log(collection);
 
 collection.find({}, function(err, docs){
