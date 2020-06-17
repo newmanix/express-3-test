@@ -50,9 +50,11 @@ router.post('/insert', function(req, res) {
     res.send("lastOne: " + lastOne);                                         
     console.log(lastOne);
     
+    db.collection.find( { $query: {}, $orderby: { age : -1 } } )
+    
     */
   
-  collection.findOne({},$orderby:{id:-1},function(e,docs){
+  collection.findOne($query:{},$orderby:{id:-1},function(e,docs){
       var title = "Find One Test";
       res.render('users/view', {
           title:title,
@@ -60,12 +62,7 @@ router.post('/insert', function(req, res) {
       });
   });
   
-  
-  
-  
-  
-  
-    
+
   /*
     collection.insert({
         "first_name" : first_name,
