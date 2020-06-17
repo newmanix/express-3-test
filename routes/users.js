@@ -45,7 +45,7 @@ router.post('/insert', function(req, res) {
     var db = req.db;
     var collection = db.get('test_collection');
   
-  collection.find($query:{},{limit:20},function(e,docs){
+  collection.find({query:{}},{limit:1},function(e,docs){
       console.log(docs);
       res.send("check console");
   });
