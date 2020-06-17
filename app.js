@@ -16,8 +16,8 @@ var db = monk(uri);
 db.then(() => {
   console.log('Connected correctly to server');
 })
-
-const collection = db.get('test_collection');
+var dbo = db.db('test_db');
+const collection = dbo.get('test_collection');
  //console.log(collection);
 
 collection.find({}, function(err, docs){
