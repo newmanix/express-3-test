@@ -45,9 +45,26 @@ router.post('/insert', function(req, res) {
     var db = req.db;
     var collection = db.get('test_collection');
   
+  /*
     var lastOne = collection.findOne({$query:{},$orderby:{id:-1}})
     res.send("lastOne: " + lastOne);                                         
-    console.log(lastOne);                                       
+    console.log(lastOne);
+    
+    */
+  
+  collection.findOne({},$orderby:{id:-1},function(e,docs){
+      var title = "Find One Test";
+      res.render('users/view', {
+          title:title,
+          users:docs
+      });
+  });
+  
+  
+  
+  
+  
+  
     
   /*
     collection.insert({
