@@ -27,11 +27,6 @@ collection.insert([{a: 1}, {a: 2}, {a: 3}])
   })
   */
 
-
-
-
-
-const collection = db.get('new_collection');
  //console.log(collection);
 
 collection.find({}, function(err, docs){
