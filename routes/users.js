@@ -71,6 +71,7 @@ router.post('/insert', function(req, res) {
   });
   */
  
+  /*
     collection.insert({
         "first_name" : first_name,
         "last_name" : last_name,
@@ -83,6 +84,26 @@ router.post('/insert', function(req, res) {
             res.redirect("/");
         }
     });
+    */
+  
+  collection.insert(
+    "first_name" : first_name,
+     "last_name" : last_name,
+     "email" : email
+  )
+  .then((docs) => {
+    // docs contains the documents inserted with added **_id** fields
+    //show new user/view page
+    var title = "New User Added!";
+    res.render('users/view', {
+          title:title,
+          users:docs
+      });
+    
+  }).catch((err) => {
+     res.send("ERROR: User not added.");
+  }).then(() => db.close())
+  
 
 });
 
