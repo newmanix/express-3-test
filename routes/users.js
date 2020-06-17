@@ -27,16 +27,36 @@ router.get('/view/:id', function(req, res, next) {
   });
 });
 
-/* GET New User page. */
-router.get('/newuser', function(req, res) {
-    res.render('newuser', { title: 'Add New User' });
-});
-
+/* add user form */
 router.get('/add', function(req, res, next) {
   var title = "Add User";
       res.render('users/add', {
           title:title
       });
+});
+
+/* insert user */
+router.post('/insert', function(req, res) {
+    // retrieve form values - reliant on name attributes
+    var first_name = req.body.first_name;
+    var last_name = req.body.last_name;
+    var email = req.body.email;
+
+    var db = req.db;
+    var collection = db.get('usercollection');
+    collection.insert({
+        "first_name" : first_name,
+        "last_name" : last_name,
+        "email" : email
+    }, function(err, doc){
+        if(err){
+            res.send("ERROR: User not added.");
+        }else{
+            // redirect to list
+            res.redirect("/");
+        }
+    });
+
 });
 
 module.exports = router;
