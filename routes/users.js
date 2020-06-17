@@ -22,7 +22,7 @@ router.get('/view/:id', function(req, res, next) {
   collection.find({'_id':id},{limit:1},function(e,docs){
       res.render('users/view', {
           title:title,
-          user:docs
+          users:docs
       });
   });
 });
