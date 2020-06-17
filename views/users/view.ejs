@@ -1,6 +1,11 @@
 <%- include('../partials/header') %>
             <% users.forEach(function(user){ %>
-               <h1 style="margin-top:10%"><%= user.first_name %> <%= user.last_name %></h1>
-               <p><b>Email: </b><%= user.email %></p>
-             <% }); %>
+              <div class="card border-primary mb-3" style="max-width: 20rem;">
+              <div class="card-header">User Details</div>
+              <div class="card-body">
+                <h4 class="card-title"><%= user.first_name %> <%= user.last_name %></h4>
+                <p class="card-text">Something clever like bio type data could go here.  
+                We do however have an email: <b><%= user.email %></b></p>
+              </div>
+              <% }); %>    
 <%- include('../partials/footer') %>
