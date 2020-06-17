@@ -1,5 +1,5 @@
    <%- include('../partials/header') %>
-          <h1 class="display-3">Our Users!</h1>
+          <h1 class="display-3" style="margin-top:10%">Our Users!</h1>
           <table class="table table-hover table-striped">
            <thead>
              <tr>
@@ -11,7 +11,7 @@
            <tbody>
             <% users.forEach(function(user){ %>
              <tr>
-               <td><a href="view/<%= user._id %>"><%= user.first_name %></a></td>
+               <td><a href="users/view/<%= user._id %>"><%= user.first_name %></a></td>
                <td><%= user.last_name %></td>
                <td><%= user.email %></td>
              </tr>
