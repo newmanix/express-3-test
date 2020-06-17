@@ -95,10 +95,13 @@ router.post('/insert', function(req, res) {
     // docs contains the documents inserted with added **_id** fields
     //show new user/view page
     var title = "New User Added!";
+    res.send("User Added!");
+    console.log(docs);
+    /*
     res.render('users/view', {
           title:title,
           users:docs
-      });
+      });*/
     
   }).catch((err) => {
      res.send("ERROR: User not added.");
