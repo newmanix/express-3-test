@@ -41,6 +41,7 @@ router.post('/insert', function(req, res) {
     var first_name = req.body.first_name;
     var last_name = req.body.last_name;
     var email = req.body.email;
+    var id = 101;//placeholder
 
     var db = req.db;
     var collection = db.get('test_collection');
@@ -89,19 +90,20 @@ router.post('/insert', function(req, res) {
   collection.insert({
     "first_name" : first_name,
      "last_name" : last_name,
-     "email" : email
+     "email" : email,
+     "id": id
   })
   .then((docs) => {
     // docs contains the documents inserted with added **_id** fields
     //show new user/view page
     var title = "New User Added!";
-    res.send("User Added!");
+    //res.send("User Added!");
     console.log(docs);
-    /*
+    
     res.render('users/view', {
           title:title,
-          users:docs
-      });*/
+          users:[docs]
+      });
     
   }).catch((err) => {
      res.send("ERROR: User not added.");
