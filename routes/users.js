@@ -86,11 +86,11 @@ router.post('/insert', function(req, res) {
     });
     */
   
-  collection.insert(
+  collection.insert({
     "first_name" : first_name,
      "last_name" : last_name,
      "email" : email
-  )
+  })
   .then((docs) => {
     // docs contains the documents inserted with added **_id** fields
     //show new user/view page
