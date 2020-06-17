@@ -43,7 +43,13 @@ router.post('/insert', function(req, res) {
     var email = req.body.email;
 
     var db = req.db;
-    var collection = db.get('usercollection');
+    var collection = db.get('test_collection');
+  
+    var lastOne = collection.findOne({$query:{},$orderby:{id:-1}})
+                                             
+   console.log(lastOne);                                       
+    
+  /*
     collection.insert({
         "first_name" : first_name,
         "last_name" : last_name,
@@ -56,6 +62,8 @@ router.post('/insert', function(req, res) {
             res.redirect("/");
         }
     });
+    
+    */
 
 });
 
