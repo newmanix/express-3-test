@@ -44,8 +44,7 @@ router.post('/insert', function(req, res) {
 
     var db = req.db;
     var collection = db.get('test_collection');
-  
-  collection.findOne({},{limit:1},function(e,docs){
+    collection.find({id:{$gt:20}},{limit:1},function(e,docs){
       console.log(docs);
       res.send("check console");
   });
