@@ -9,7 +9,7 @@ var db_admin = credentials.getCredentials();
 
 //now using monk to handle MongoDB
 var monk = require('monk');
-var uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@cluster0-i3nnd.gcp.mongodb.net/test?retryWrites=true&w=majority";
+var uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@cluster0-i3nnd.gcp.mongodb.net/test_db?retryWrites=true&w=majority";
 // Connect to the db
 var db = monk(uri);
 
@@ -17,7 +17,7 @@ db.then(() => {
   console.log('Connected correctly to server');
 })
 
-const collection = db.get('new_collection');
+const collection = db.get('test_collection');
 
 /*
 collection.insert([{a: 1}, {a: 2}, {a: 3}])
