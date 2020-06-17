@@ -1,11 +1,9 @@
 <%- include('../partials/header') %>
             <% users.forEach(function(user){ %>
-              <div class="card border-primary mb-3" style="max-width: 20rem; margin-top:10%">
-              <div class="card-header">User Details</div>
-              <div class="card-body">
-                <h4 class="card-title"><%= user.first_name %> <%= user.last_name %></h4>
-                <p class="card-text">Something clever like bio type data could go here.  
-                We do however have an email: <b><%= user.email %></b></p>
-              </div>
+            <div class="panel panel-default">
+              <div class="panel-heading"><%= user.first_name %> <%= user.last_name %></div>
+              <div class="panel-body">Something clever like bio type data could go here.  
+                We do however have an email: <b><%= user.email %></b></div>
+              <div class="panel-footer">Panel Footer</div>
               <% }); %>    
 <%- include('../partials/footer') %>
