@@ -46,8 +46,8 @@ router.post('/insert', function(req, res) {
     var collection = db.get('test_collection');
   
     var lastOne = collection.findOne({$query:{},$orderby:{id:-1}})
-                                             
-   console.log(lastOne);                                       
+    res.send("lastOne: " + lastOne);                                         
+    console.log(lastOne);                                       
     
   /*
     collection.insert({
