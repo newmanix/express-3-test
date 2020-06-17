@@ -27,5 +27,17 @@ router.get('/view/:id', function(req, res, next) {
   });
 });
 
+/* GET New User page. */
+router.get('/newuser', function(req, res) {
+    res.render('newuser', { title: 'Add New User' });
+});
+
+router.get('/add', function(req, res, next) {
+  var title = "Add User";
+      res.render('users/add', {
+          title:title
+      });
+});
+
 module.exports = router;
 
