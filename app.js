@@ -15,9 +15,17 @@ var db = monk(uri);
 
 db.then(() => {
   console.log('Connected correctly to server');
-})
+});
 
 const collection = db.get('test_collection');
+
+collection.find({}, function(err, docs){
+    if(err){
+      console.log(err);
+    }else{
+	console.log(docs);
+    }
+});
 
 /*
 collection.insert([{a: 1}, {a: 2}, {a: 3}])
@@ -29,23 +37,6 @@ collection.insert([{a: 1}, {a: 2}, {a: 3}])
 
  //console.log(collection);
 
-collection.find({}, function(err, docs){
-		if(err){
-      console.log(err);
-    }else{
-		  console.log(docs);
-    }
-	});
-
-
-/*
-var data = collection.find({});
-data.on('success',function(docs){
-          console.log(docs);
-        });
-*/
-
-//console.log(db);
 
 
 /*
@@ -88,26 +79,6 @@ app.use(function(req,res,next){
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-app.get('/dbs',function(req,res){
-  db.driver.admin.listDatabases(function(e,dbs){
-      res.json(dbs);
-  });
-});
-
-/*
-app.get('/collections',function(req,res){
-  db.driver.collectionNames(function(e,names){
-    res.json(names);
-  })
-});
-*/
-
-app.get('/collections',function(req,res){
-  db.driver.getCollections(function(e,names){
-    res.json(names);
-  })
-});
 
 app.get('/collections/:name',function(req,res){
   var collection = db.get(req.params.name);
