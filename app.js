@@ -35,26 +35,6 @@ collection.insert([{a: 1}, {a: 2}, {a: 3}])
   })
   */
 
- //console.log(collection);
-
-
-
-/*
-var MongoClient = require('mongodb').MongoClient;
-var uri = "mongodb+srv://" + db_admin.username + ":" + db_admin.password + "@cluster0-i3nnd.gcp.mongodb.net/test?retryWrites=true&w=majority";
-// Connect to the db
-MongoClient.connect(uri, function(err, db) {
-  if (err) throw err;
-  var dbo = db.db("test_db");
-  //var query = { address: "Park Lane 38" };
-  var query = {};
-  dbo.collection("test_collection").find(query).toArray(function(err, result) {
-    if (err) throw err;
-    console.log(result);
-    db.close();
-  });
-});
-*/
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
