@@ -54,7 +54,7 @@ router.post('/insert', function(req, res) {
     
     */
   
-  collection.findOne($query:{},$orderby:{id:-1},function(e,docs){
+  collection.findOne('$query:{}','$orderby:{id:-1}',function(e,docs){
       var title = "Find One Test";
       res.render('users/view', {
           title:title,
